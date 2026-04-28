@@ -32,7 +32,7 @@ h1 {
     color: red;
 }
 
-/* IMAGEN PRODUCTO */
+/* PRODUCTO */
 .product {
     margin-top: 20px;
     opacity: 0;
@@ -41,9 +41,21 @@ h1 {
     animation-delay: 0.5s;
 }
 
+/* 🔥 SANGUCHE MÁS GRANDE */
 .burger {
-    width: 220px;
+    width: 90%;
+    max-width: 420px;
     animation: flotar 3s ease-in-out infinite;
+}
+
+/* TEXTO */
+.descripcion {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background: rgba(0,0,0,0.5);
+    padding: 12px 18px;
+    border-radius: 10px;
 }
 
 @keyframes aparecer {
@@ -114,6 +126,11 @@ h1 {
 
     <div class="product">
         <img src="merluza.png" class="burger">
+
+        <p class="descripcion">
+            <strong>CHORO PORTEÑO</strong><br>
+            Pan crujiente + relleno brutal + sabor que no perdona
+        </p>
     </div>
 </div>
 
