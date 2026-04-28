@@ -22,9 +22,9 @@ body {
         url("dedia3.png") center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* 👈 clave */
     align-items: center;
-    padding: 20px;
+    padding: 60px 20px 20px 20px;
 }
 
 h1 {
@@ -41,10 +41,10 @@ h1 {
     animation-delay: 0.5s;
 }
 
-/* 🔥 SANGUCHE MÁS GRANDE */
+/* 🔥 SANGUCHE MÁS GRANDE (+20%) */
 .burger {
-    width: 90%;
-    max-width: 420px;
+    width: 100%;
+    max-width: 500px;
     animation: flotar 3s ease-in-out infinite;
 }
 
@@ -113,6 +113,21 @@ h1 {
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* 📱 MOBILE FIX */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 30px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .burger {
+        max-width: 420px;
+    }
 }
 </style>
 </head>
