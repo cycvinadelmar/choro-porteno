@@ -6,24 +6,6 @@
 <title>Choro Porteño</title>
 
 <style>
-    <a href="https://wa.me/56912345678?text=Hola%20Quiero%20el%2020%25%20de%20descuento%20del%20Choro%20Porteno" target="_blank" class="whatsapp-float">
-    💬 Pedir por WhatsApp
-</a>
-
-<style>
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-</style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -32,6 +14,7 @@ body {
     text-align: center;
 }
 
+/* HERO */
 .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1550547660-d9450f859349') center/cover no-repeat;
@@ -43,15 +26,29 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: red;
 }
 
 .product {
     margin-top: 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+
+    /* ANIMACIÓN */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aparecer 1s ease forwards;
+    animation-delay: 0.5s;
 }
 
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* OFERTA */
 .offer {
     padding: 40px 20px;
 }
@@ -76,11 +73,26 @@ button {
 button:hover {
     background: darkred;
 }
+
+/* BOTÓN FLOTANTE */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
     <h1>⚠️ CUIDADO CON EL LADRÓN DEL HAMBRE</h1>
     <p>Anda suelto en Viña… y ataca fuerte</p>
@@ -91,17 +103,23 @@ button:hover {
     </div>
 </div>
 
+<!-- OFERTA -->
 <div class="offer">
     <h2>💥 20% DE DESCUENTO</h2>
     <p>Déjanos tus datos y te lo llevas hoy</p>
 
     <input type="text" placeholder="Nombre"><br>
-    <input type="text" placeholder="WhatsApp"><br>
-    <br>
-    <a href="https://wa.me/56977122535?text=Hola!%20Quiero%20el%2020%25%20de%20descuento%20del%20Choro%20Porteño" target="_blank">
-    <button>QUIERO MI DESCUENTO</button>
-</a>
+    <input type="text" placeholder="WhatsApp"><br><br>
+
+    <a href="https://wa.me/56977122535?text=Hola%20Quiero%20el%2020%25%20de%20descuento%20del%20Choro%20Porteno" target="_blank">
+        <button>🔥 QUIERO MI 20% OFF</button>
+    </a>
 </div>
+
+<!-- BOTÓN FLOTANTE -->
+<a href="https://wa.me/56912345678?text=Hola%20Quiero%20el%2020%25%20de%20descuento%20del%20Choro%20Porteno" target="_blank" class="whatsapp-float">
+    💬 Pedir por WhatsApp
+</a>
 
 </body>
 </html>
