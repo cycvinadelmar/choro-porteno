@@ -32,13 +32,18 @@ h1 {
     color: red;
 }
 
+/* IMAGEN PRODUCTO */
 .product {
     margin-top: 20px;
-    font-size: 1rem;
     opacity: 0;
     transform: translateY(30px);
     animation: aparecer 1s ease forwards;
     animation-delay: 0.5s;
+}
+
+.burger {
+    width: 220px;
+    animation: flotar 3s ease-in-out infinite;
 }
 
 @keyframes aparecer {
@@ -46,6 +51,12 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
 }
 
 /* OFERTA */
@@ -102,8 +113,7 @@ h1 {
     <p>Anda suelto en Viña… y ataca fuerte</p>
 
     <div class="product">
-        🍔 <strong>CHORO PORTEÑO</strong><br>
-        Pan crujiente + relleno brutal + sabor que no perdona
+        <img src="merluza.png" class="burger">
     </div>
 </div>
 
