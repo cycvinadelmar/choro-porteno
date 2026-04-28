@@ -16,8 +16,10 @@ body {
 
 /* HERO */
 .hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1550547660-d9450f859349') center/cover no-repeat;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("dedia3.png") center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,8 +35,6 @@ h1 {
 .product {
     margin-top: 20px;
     font-size: 1rem;
-
-    /* ANIMACIÓN */
     opacity: 0;
     transform: translateY(30px);
     animation: aparecer 1s ease forwards;
@@ -53,25 +53,29 @@ h1 {
     padding: 40px 20px;
 }
 
-input {
-    padding: 12px;
-    margin: 8px;
-    width: 220px;
-    border-radius: 5px;
-    border: none;
-}
-
-button {
-    padding: 12px 25px;
+.cta-main {
+    padding: 20px 40px;
+    font-size: 1.3rem;
     background: red;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pulse 1.5s infinite;
 }
 
-button:hover {
-    background: darkred;
+.cta-main:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
 /* BOTÓN FLOTANTE */
@@ -106,40 +110,10 @@ button:hover {
 <!-- OFERTA -->
 <div class="offer">
     <h2>💥 20% DE DESCUENTO</h2>
-    <p>Déjanos tus datos y te lo llevas hoy</p>
+    <p>Aprovecha tu descuento escribiéndonos directo por WhatsApp</p>
 
-  <a href="https://wa.me/56977122535?text=Hola%2C%20quiero%20mi%2020%25%20OFF%20del%20Choro%20Porteno%20%F0%9F%94%A5" target="_blank">
-    <button class="cta-main">🔥 QUIERO MI 20% OFF</button>
-</a>
-
-<style>
-.cta-main {
-    padding: 20px 40px;
-    font-size: 1.3rem;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    /* ANIMACIÓN */
-    animation: pulse 1.5s infinite;
-}
-
-.cta-main:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-    100% { transform: scale(1); }
-}
-</style>
+    <a href="https://wa.me/56977122535?text=Hola%2C%20quiero%20mi%2020%25%20OFF%20del%20Choro%20Porte%C3%B1o%20%F0%9F%94%A5" target="_blank">
+        <button class="cta-main">🔥 QUIERO MI 20% OFF</button>
     </a>
 </div>
 
