@@ -108,11 +108,38 @@ button:hover {
     <h2>💥 20% DE DESCUENTO</h2>
     <p>Déjanos tus datos y te lo llevas hoy</p>
 
-    <input type="text" placeholder="Nombre"><br>
-    <input type="text" placeholder="WhatsApp"><br><br>
+  <a href="https://wa.me/56977122535?text=Hola%2C%20quiero%20mi%2020%25%20OFF%20del%20Choro%20Porteno%20%F0%9F%94%A5" target="_blank">
+    <button class="cta-main">🔥 QUIERO MI 20% OFF</button>
+</a>
 
-    <a href="https://wa.me/56977122535?text=Hola%20Quiero%20el%2020%25%20de%20descuento%20del%20Choro%20Porteno" target="_blank">
-        <button>🔥 QUIERO MI 20% OFF</button>
+<style>
+.cta-main {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* ANIMACIÓN */
+    animation: pulse 1.5s infinite;
+}
+
+.cta-main:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+</style>
     </a>
 </div>
 
