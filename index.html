@@ -245,44 +245,52 @@ h1, .subtexto {
 </a>
 
 <script>
+let tiempo = 0;
+
 function animarSandwich() {
     const scroll = window.scrollY;
 
     const aperturaInicial = 130;
-
     const esMobile = window.innerWidth <= 768;
     const velocidadCierre = esMobile ? 2.2 : 1.2;
 
     const cierre = Math.min(scroll * velocidadCierre, aperturaInicial);
     const move = aperturaInicial - cierre;
 
+    // Flotación suave: mientras más abierto, más flota
+    const intensidadFlote = move / aperturaInicial;
+    tiempo += 0.035;
+
+    const flote = Math.sin(tiempo) * 4 * intensidadFlote;
+
     document.querySelector(".basepan").style.transform =
-        `translateX(-50%) translateY(${move * 0.22}px)`;
+        `translateX(-50%) translateY(${move * 0.22 + flote}px)`;
 
     document.querySelector(".lechuga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.2}px)`;
+        `translateX(-50%) translateY(${-move * 0.2 + flote}px)`;
 
     document.querySelector(".caluga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.45}px)`;
+        `translateX(-50%) translateY(${-move * 0.45 + flote}px)`;
 
     document.querySelector(".tomate").style.transform =
-        `translateX(-50%) translateY(${-move * 0.7}px)`;
+        `translateX(-50%) translateY(${-move * 0.7 + flote}px)`;
 
     document.querySelector(".ajiverde").style.transform =
-        `translateX(-50%) translateY(${-move * 0.95}px)`;
+        `translateX(-50%) translateY(${-move * 0.95 + flote}px)`;
 
     document.querySelector(".cebollamorada").style.transform =
-        `translateX(-50%) translateY(${-move * 1.15}px)`;
+        `translateX(-50%) translateY(${-move * 1.15 + flote}px)`;
 
     document.querySelector(".tapa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.45}px)`;
+        `translateX(-50%) translateY(${-move * 1.45 + flote}px)`;
 
     document.querySelector(".salsa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.25}px)`;
+        `translateX(-50%) translateY(${-move * 1.25 + flote}px)`;
+
+    requestAnimationFrame(animarSandwich);
 }
 
-window.addEventListener("scroll", animarSandwich);
-window.addEventListener("load", animarSandwich);
+requestAnimationFrame(animarSandwich);
 </script>
 
 </body>
