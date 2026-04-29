@@ -16,7 +16,7 @@ body {
 
 /* HERO */
 .hero {
-    min-height: 115vh;
+    min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url("dedia3.png") center/cover no-repeat;
@@ -24,7 +24,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 25px 20px 40px 20px;
+    padding: 20px 20px 10px 20px;
 }
 
 h1 {
@@ -55,7 +55,7 @@ h1, .subtexto {
 
 /* PRODUCTO */
 .product {
-    margin-top: -10px;
+    margin-top: -5px;
     opacity: 0;
     transform: translateY(30px);
     animation: aparecer 1s ease forwards;
@@ -67,8 +67,8 @@ h1, .subtexto {
     position: relative;
     width: 95vw;
     max-width: 520px;
-    height: 560px;
-    margin: 10px auto 0 auto;
+    height: 520px;
+    margin: 5px auto 0 auto;
 }
 
 .layer {
@@ -81,18 +81,18 @@ h1, .subtexto {
 }
 
 /* POSICIÓN BASE */
-.basepan { top: 295px; z-index: 1; }
-.lechuga { top: 250px; z-index: 2; }
-.caluga { top: 210px; z-index: 3; }
-.tomate { top: 175px; z-index: 4; }
-.ajiverde { top: 150px; z-index: 5; }
-.cebollamorada { top: 130px; z-index: 6; }
-.tapa { top: 95px; z-index: 7; }
-.salsa { top: 135px; z-index: 8; }
+.basepan { top: 280px; z-index: 1; }
+.lechuga { top: 235px; z-index: 2; }
+.caluga { top: 195px; z-index: 3; }
+.tomate { top: 160px; z-index: 4; }
+.ajiverde { top: 135px; z-index: 5; }
+.cebollamorada { top: 115px; z-index: 6; }
+.tapa { top: 90px; z-index: 7; }
+.salsa { top: 125px; z-index: 8; }
 
 /* TEXTO INFERIOR */
 .descripcion {
-    margin-top: -20px;
+    margin-top: -35px;
     font-size: 1.05rem;
     line-height: 1.45;
     background: rgba(0,0,0,0.6);
@@ -101,7 +101,6 @@ h1, .subtexto {
     position: relative;
     z-index: 20;
     font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
 .descripcion strong {
@@ -118,7 +117,7 @@ h1, .subtexto {
 
 /* OFERTA */
 .offer {
-    padding: 40px 20px;
+    padding: 20px 20px 40px 20px;
 }
 
 .cta-main {
@@ -161,10 +160,9 @@ h1, .subtexto {
 /* MOBILE */
 @media (max-width: 768px) {
     .hero {
-    min-height: auto;
-    height: auto;
-    padding-bottom: 10px;
-}
+        min-height: auto;
+        padding-top: 15px;
+    }
 
     h1 {
         font-size: 1.45rem;
@@ -178,23 +176,22 @@ h1, .subtexto {
     .sandwich-scene {
         width: 108vw;
         max-width: 470px;
-        height: 540px;
-        margin-top: -15px;
+        height: 460px;
+        margin-top: 0px;
     }
 
-    .basepan { top: 310px; }
-    .lechuga { top: 268px; }
-    .caluga { top: 232px; }
-    .tomate { top: 200px; }
-    .ajiverde { top: 175px; }
-    .cebollamorada { top: 155px; }
+    .basepan { top: 260px; }
+    .lechuga { top: 220px; }
+    .caluga { top: 185px; }
+    .tomate { top: 155px; }
+    .ajiverde { top: 130px; }
+    .cebollamorada { top: 110px; }
     .tapa { top: 85px; }
-    .salsa { top: 135px; }
+    .salsa { top: 120px; }
 
     .descripcion {
-        margin-top: -20px;
+        margin-top: -30px;
         font-size: 0.95rem;
-        line-height: 1.35;
     }
 }
 </style>
@@ -248,7 +245,9 @@ function animarSandwich() {
     const scroll = window.scrollY;
 
     const aperturaInicial = 130;
-    const velocidadCierre = 1.2;
+
+    const esMobile = window.innerWidth <= 768;
+    const velocidadCierre = esMobile ? 2.2 : 1.2;
 
     const cierre = Math.min(scroll * velocidadCierre, aperturaInicial);
     const move = aperturaInicial - cierre;
