@@ -48,7 +48,6 @@ h1 {
     max-width: 520px;
     height: 420px;
     margin: 0 auto;
-    animation: flotar 3s ease-in-out infinite;
 }
 
 .layer {
@@ -272,29 +271,32 @@ h1 {
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
 
+    // límite para que no se separen demasiado
+    const move = Math.min(scroll * 0.08, 35);
+
     document.querySelector(".basepan").style.transform =
-        `translateX(-50%) translateY(${scroll * 0.03}px)`;
+        `translateX(-50%) translateY(${move * 0.2}px)`;
 
     document.querySelector(".lechuga").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.02}px)`;
+        `translateX(-50%) translateY(${-move * 0.2}px)`;
 
     document.querySelector(".caluga").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.04}px)`;
+        `translateX(-50%) translateY(${-move * 0.45}px)`;
 
     document.querySelector(".tomate").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.06}px)`;
+        `translateX(-50%) translateY(${-move * 0.7}px)`;
 
     document.querySelector(".ajiverde").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.08}px)`;
+        `translateX(-50%) translateY(${-move * 0.9}px)`;
 
     document.querySelector(".cebollamorada").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.1}px)`;
+        `translateX(-50%) translateY(${-move * 1.1}px)`;
 
     document.querySelector(".tapa").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.12}px)`;
+        `translateX(-50%) translateY(${-move * 1.5}px)`;
 
     document.querySelector(".salsa").style.transform =
-        `translateX(-50%) translateY(${scroll * -0.09}px)`;
+        `translateX(-50%) translateY(${-move * 1.25}px)`;
 });
 </script>
 
