@@ -272,32 +272,31 @@ h1 {
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
 
-    // límite para que no se separen demasiado
-    const move = Math.min(scroll * 0.08, 35);
+    const move = Math.min(scroll * 0.22, 95);
 
     document.querySelector(".basepan").style.transform =
-        `translateX(-50%) translateY(${move * 0.2}px)`;
+        `translateX(-50%) translateY(${move * 0.25}px)`;
 
     document.querySelector(".lechuga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.2}px)`;
+        `translateX(-50%) translateY(${-move * 0.25}px)`;
 
     document.querySelector(".caluga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.45}px)`;
+        `translateX(-50%) translateY(${-move * 0.55}px)`;
 
     document.querySelector(".tomate").style.transform =
-        `translateX(-50%) translateY(${-move * 0.7}px)`;
-
-    document.querySelector(".ajiverde").style.transform =
         `translateX(-50%) translateY(${-move * 0.9}px)`;
 
+    document.querySelector(".ajiverde").style.transform =
+        `translateX(-50%) translateY(${-move * 1.15}px)`;
+
     document.querySelector(".cebollamorada").style.transform =
-        `translateX(-50%) translateY(${-move * 1.1}px)`;
+        `translateX(-50%) translateY(${-move * 1.35}px)`;
 
     document.querySelector(".tapa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.5}px)`;
+        `translateX(-50%) translateY(${-move * 1.75}px)`;
 
     document.querySelector(".salsa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.25}px)`;
+        `translateX(-50%) translateY(${-move * 1.5}px)`;
 });
 </script>
 
