@@ -33,13 +33,13 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* TEXTO PRINCIPAL AL FRENTE */
+/* TEXTO AL FRENTE */
 h1, .subtexto {
     position: relative;
     z-index: 20;
 }
 
-/* SUBTEXTO DESTACADO */
+/* SUBTEXTO */
 .subtexto {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -93,13 +93,20 @@ h1, .subtexto {
 /* TEXTO INFERIOR */
 .descripcion {
     margin-top: -20px;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    line-height: 1.45;
     background: rgba(0,0,0,0.6);
-    padding: 12px 18px;
+    padding: 14px 20px;
     border-radius: 10px;
     position: relative;
     z-index: 20;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.descripcion strong {
+    color: #ff3c00;
+    font-size: 1.2rem;
 }
 
 @keyframes aparecer {
@@ -185,7 +192,8 @@ h1, .subtexto {
 
     .descripcion {
         margin-top: -20px;
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.35;
     }
 }
 </style>
@@ -212,7 +220,10 @@ h1, .subtexto {
 
         <p class="descripcion">
             <strong>CHORO PORTEÑO</strong><br>
-            Pan crujiente + relleno brutal + sabor que no perdona
+            PAN CRUJIENTE<br>
+            RELLENO BRUTAL<br>
+            SABOR QUE NO PERDONA<br>
+            UNA EXPERIENCIA INOLVIDABLE
         </p>
 
     </div>
