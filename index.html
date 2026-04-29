@@ -41,6 +41,7 @@ h1 {
     animation-delay: 0.5s;
 }
 
+/* ESCENA SANGUCHE */
 .sandwich-scene {
     position: relative;
     width: 95vw;
@@ -57,47 +58,17 @@ h1 {
     pointer-events: none;
 }
 
-/* CAPAS DE ABAJO HACIA ARRIBA */
-.basepan {
-    top: 250px;
-    z-index: 1;
-}
+/* CAPAS BASE (posición cerrada) */
+.basepan { top: 250px; z-index: 1; }
+.lechuga { top: 205px; z-index: 2; }
+.caluga { top: 165px; z-index: 3; }
+.tomate { top: 130px; z-index: 4; }
+.ajiverde { top: 105px; z-index: 5; }
+.cebollamorada { top: 85px; z-index: 6; }
 
-.lechuga {
-    top: 205px;
-    z-index: 2;
-}
-
-.caluga {
-    top: 165px;
-    z-index: 3;
-}
-
-.tomate {
-    top: 130px;
-    z-index: 4;
-}
-
-.ajiverde {
-    top: 105px;
-    z-index: 5;
-}
-
-.cebollamorada {
-    top: 85px;
-    z-index: 6;
-}
-
-/* TAPA ARRIBA, PERO DETRÁS DE SALSA */
-.tapa {
-    top: 15px;
-    z-index: 7;
-}
-
-.salsa {
-    top: 65px;
-    z-index: 8;
-}
+/* TAPA Y SALSA */
+.tapa { top: 15px; z-index: 7; }
+.salsa { top: 65px; z-index: 8; }
 
 /* TEXTO */
 .descripcion {
@@ -131,13 +102,11 @@ h1 {
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     animation: pulse 1.5s infinite;
 }
 
 .cta-main:hover {
     transform: scale(1.08);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 @keyframes pulse {
@@ -146,7 +115,7 @@ h1 {
     100% { transform: scale(1); }
 }
 
-/* BOTÓN FLOTANTE */
+/* BOTÓN */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -157,77 +126,32 @@ h1 {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 99;
 }
 
-/* CELULAR */
+/* MOBILE */
 @media (max-width: 768px) {
-    .hero {
-        padding-top: 20px;
-    }
+    .hero { padding-top: 20px; }
 
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
+    h1 { font-size: 1.5rem; }
 
-    .hero p {
-        margin-top: 0;
-        margin-bottom: 5px;
-    }
-
-  .sandwich-scene {
+    .sandwich-scene {
         width: 108vw;
         max-width: 470px;
         height: 420px;
         margin-top: -25px;
     }
 
-    .basepan {
-        top: 220px;
-    }
-
-    .lechuga {
-        top: 180px;
-    }
-
-    .caluga {
-        top: 145px;
-    }
-
-    .tomate {
-        top: 115px;
-    }
-
-    .ajiverde {
-        top: 92px;
-    }
-
-    .cebollamorada {
-        top: 72px;
-    }
-
-    .tapa {
-        top: 5px;
-    }
-
-    .salsa {
-        top: 52px;
-    }
-
-       .descripcion {
+    .descripcion {
         margin-top: -35px;
         font-size: 1rem;
     }
-}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
     <h1>⚠️ CUIDADO CON EL LADRÓN DEL HAMBRE</h1>
     <p>Anda suelto en Viña… y ataca fuerte</p>
@@ -253,18 +177,16 @@ h1 {
     </div>
 </div>
 
-<!-- OFERTA -->
 <div class="offer">
     <h2>💥 20% DE DESCUENTO</h2>
     <p>Aprovecha tu descuento escribiéndonos directo por WhatsApp</p>
 
-    <a href="https://wa.me/56977122535?text=Hola%2C%20quiero%20mi%2020%25%20OFF%20del%20Choro%20Porte%C3%B1o%20%F0%9F%94%A5" target="_blank">
+    <a href="https://wa.me/56977122535?text=Hola%20quiero%20mi%2020%25%20OFF" target="_blank">
         <button class="cta-main">🔥 QUIERO MI 20% OFF</button>
     </a>
 </div>
 
-<!-- BOTÓN FLOTANTE -->
-<a href="https://wa.me/56977122535?text=Hola%20puedo%20hacer%20un%20pedido" target="_blank" class="whatsapp-float">
+<a href="https://wa.me/56977122535" target="_blank" class="whatsapp-float">
     💬 Hacer pedido
 </a>
 
@@ -272,7 +194,9 @@ h1 {
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
 
-    const move = Math.min(scroll * 0.22, 95);
+    const aperturaInicial = 120; // más abierto
+    const cierre = Math.min(scroll * 0.3, aperturaInicial);
+    const move = aperturaInicial - cierre;
 
     document.querySelector(".basepan").style.transform =
         `translateX(-50%) translateY(${move * 0.25}px)`;
@@ -298,6 +222,9 @@ window.addEventListener("scroll", () => {
     document.querySelector(".salsa").style.transform =
         `translateX(-50%) translateY(${-move * 1.5}px)`;
 });
+
+// fuerza estado inicial abierto
+window.dispatchEvent(new Event("scroll"));
 </script>
 
 </body>
