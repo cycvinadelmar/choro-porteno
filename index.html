@@ -16,7 +16,7 @@ body {
 
 /* HERO */
 .hero {
-    min-height: 100vh;
+    min-height: 115vh;
     background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url("dedia3.png") center/cover no-repeat;
@@ -24,17 +24,23 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 45px 20px 20px 20px;
+    padding: 25px 20px 40px 20px;
 }
 
 h1 {
     font-size: 1.8rem;
     color: red;
+    margin-bottom: 5px;
+}
+
+.hero > p {
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 /* PRODUCTO */
 .product {
-    margin-top: -10px;
+    margin-top: 0;
     opacity: 0;
     transform: translateY(30px);
     animation: aparecer 1s ease forwards;
@@ -46,8 +52,8 @@ h1 {
     position: relative;
     width: 95vw;
     max-width: 520px;
-    height: 500px;
-    margin: -20px auto 0 auto;
+    height: 560px;
+    margin: -45px auto 0 auto;
 }
 
 .layer {
@@ -56,28 +62,29 @@ h1 {
     width: 100%;
     transform: translateX(-50%);
     pointer-events: none;
+    transition: transform 0.08s linear;
 }
 
-/* CAPAS BASE (posición cerrada) */
-.basepan { top: 250px; z-index: 1; }
-.lechuga { top: 205px; z-index: 2; }
-.caluga { top: 165px; z-index: 3; }
-.tomate { top: 130px; z-index: 4; }
-.ajiverde { top: 105px; z-index: 5; }
-.cebollamorada { top: 85px; z-index: 6; }
-
-/* TAPA Y SALSA */
-.tapa { top: 15px; z-index: 7; }
-.salsa { top: 65px; z-index: 8; }
+/* POSICIÓN CERRADA */
+.basepan { top: 295px; z-index: 1; }
+.lechuga { top: 250px; z-index: 2; }
+.caluga { top: 210px; z-index: 3; }
+.tomate { top: 175px; z-index: 4; }
+.ajiverde { top: 150px; z-index: 5; }
+.cebollamorada { top: 130px; z-index: 6; }
+.tapa { top: 60px; z-index: 7; }
+.salsa { top: 110px; z-index: 8; }
 
 /* TEXTO */
 .descripcion {
-    margin-top: -20px;
+    margin-top: -30px;
     font-size: 1.1rem;
     line-height: 1.5;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.58);
     padding: 12px 18px;
     border-radius: 10px;
+    position: relative;
+    z-index: 20;
 }
 
 @keyframes aparecer {
@@ -131,19 +138,39 @@ h1 {
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .hero { padding-top: 20px; }
+    .hero {
+        min-height: 120vh;
+        padding-top: 18px;
+    }
 
-    h1 { font-size: 1.5rem; }
+    h1 {
+        font-size: 1.45rem;
+        margin-bottom: 4px;
+    }
+
+    .hero > p {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
 
     .sandwich-scene {
         width: 108vw;
         max-width: 470px;
-        height: 420px;
-        margin-top: -25px;
+        height: 500px;
+        margin-top: -55px;
     }
 
+    .basepan { top: 280px; }
+    .lechuga { top: 238px; }
+    .caluga { top: 202px; }
+    .tomate { top: 170px; }
+    .ajiverde { top: 145px; }
+    .cebollamorada { top: 125px; }
+    .tapa { top: 55px; }
+    .salsa { top: 105px; }
+
     .descripcion {
-        margin-top: -35px;
+        margin-top: -45px;
         font-size: 1rem;
     }
 }
@@ -191,40 +218,47 @@ h1 {
 </a>
 
 <script>
-window.addEventListener("scroll", () => {
+function animarSandwich() {
     const scroll = window.scrollY;
 
-    const aperturaInicial = 120; // más abierto
-    const cierre = Math.min(scroll * 0.3, aperturaInicial);
+    /*
+      aperturaInicial = qué tan abierto parte
+      velocidadCierre = qué tan rápido se junta
+      Mientras más alto velocidadCierre, antes se cierra.
+    */
+    const aperturaInicial = 130;
+    const velocidadCierre = 0.95;
+
+    const cierre = Math.min(scroll * velocidadCierre, aperturaInicial);
     const move = aperturaInicial - cierre;
 
     document.querySelector(".basepan").style.transform =
-        `translateX(-50%) translateY(${move * 0.25}px)`;
+        `translateX(-50%) translateY(${move * 0.22}px)`;
 
     document.querySelector(".lechuga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.25}px)`;
+        `translateX(-50%) translateY(${-move * 0.2}px)`;
 
     document.querySelector(".caluga").style.transform =
-        `translateX(-50%) translateY(${-move * 0.55}px)`;
+        `translateX(-50%) translateY(${-move * 0.45}px)`;
 
     document.querySelector(".tomate").style.transform =
-        `translateX(-50%) translateY(${-move * 0.9}px)`;
+        `translateX(-50%) translateY(${-move * 0.7}px)`;
 
     document.querySelector(".ajiverde").style.transform =
-        `translateX(-50%) translateY(${-move * 1.15}px)`;
+        `translateX(-50%) translateY(${-move * 0.95}px)`;
 
     document.querySelector(".cebollamorada").style.transform =
-        `translateX(-50%) translateY(${-move * 1.35}px)`;
+        `translateX(-50%) translateY(${-move * 1.15}px)`;
 
     document.querySelector(".tapa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.75}px)`;
+        `translateX(-50%) translateY(${-move * 1.45}px)`;
 
     document.querySelector(".salsa").style.transform =
-        `translateX(-50%) translateY(${-move * 1.5}px)`;
-});
+        `translateX(-50%) translateY(${-move * 1.25}px)`;
+}
 
-// fuerza estado inicial abierto
-window.dispatchEvent(new Event("scroll"));
+window.addEventListener("scroll", animarSandwich);
+window.addEventListener("load", animarSandwich);
 </script>
 
 </body>
