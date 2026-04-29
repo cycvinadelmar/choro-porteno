@@ -22,9 +22,9 @@ body {
         url("dedia3.png") center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* 👈 clave */
+    justify-content: flex-start;
     align-items: center;
-    padding: 60px 20px 20px 20px;
+    padding: 45px 20px 20px 20px;
 }
 
 h1 {
@@ -34,23 +34,76 @@ h1 {
 
 /* PRODUCTO */
 .product {
-    margin-top: 20px;
+    margin-top: 10px;
     opacity: 0;
     transform: translateY(30px);
     animation: aparecer 1s ease forwards;
     animation-delay: 0.5s;
 }
 
-/* 🔥 SANGUCHE MÁS GRANDE (+20%) */
-.burger {
-    width: 100%;
-    max-width: 500px;
+/* ESCENA SANGUCHE */
+.sandwich-scene {
+    position: relative;
+    width: 95vw;
+    max-width: 520px;
+    height: 420px;
+    margin: 0 auto;
     animation: flotar 3s ease-in-out infinite;
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+/* CAPAS DE ABAJO HACIA ARRIBA */
+.basepan {
+    top: 250px;
+    z-index: 1;
+}
+
+.lechuga {
+    top: 205px;
+    z-index: 2;
+}
+
+.caluga {
+    top: 165px;
+    z-index: 3;
+}
+
+.tomate {
+    top: 130px;
+    z-index: 4;
+}
+
+.ajiverde {
+    top: 105px;
+    z-index: 5;
+}
+
+.cebollamorada {
+    top: 85px;
+    z-index: 6;
+}
+
+/* TAPA ARRIBA, PERO DETRÁS DE SALSA */
+.tapa {
+    top: 15px;
+    z-index: 7;
+}
+
+.salsa {
+    top: 65px;
+    z-index: 8;
 }
 
 /* TEXTO */
 .descripcion {
-    margin-top: 15px;
+    margin-top: 5px;
     font-size: 1.1rem;
     line-height: 1.5;
     background: rgba(0,0,0,0.5);
@@ -67,7 +120,7 @@ h1 {
 
 @keyframes flotar {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
 
@@ -113,20 +166,60 @@ h1 {
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 99;
 }
 
-/* 📱 MOBILE FIX */
+/* CELULAR */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 30px;
+        padding-top: 25px;
     }
 
     h1 {
         font-size: 1.5rem;
     }
 
-    .burger {
-        max-width: 420px;
+    .sandwich-scene {
+        width: 105vw;
+        max-width: 460px;
+        height: 360px;
+    }
+
+    .basepan {
+        top: 220px;
+    }
+
+    .lechuga {
+        top: 180px;
+    }
+
+    .caluga {
+        top: 145px;
+    }
+
+    .tomate {
+        top: 115px;
+    }
+
+    .ajiverde {
+        top: 92px;
+    }
+
+    .cebollamorada {
+        top: 72px;
+    }
+
+    .tapa {
+        top: 5px;
+    }
+
+    .salsa {
+        top: 52px;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+        margin-top: 0;
     }
 }
 </style>
@@ -140,12 +233,23 @@ h1 {
     <p>Anda suelto en Viña… y ataca fuerte</p>
 
     <div class="product">
-        <img src="merluza.png" class="burger">
+
+        <div class="sandwich-scene">
+            <img src="basepan.png" class="layer basepan">
+            <img src="lechuga.png" class="layer lechuga">
+            <img src="caluga.png" class="layer caluga">
+            <img src="tomate.png" class="layer tomate">
+            <img src="ajiverde.png" class="layer ajiverde">
+            <img src="cebollamorada.png" class="layer cebollamorada">
+            <img src="tapa.png" class="layer tapa">
+            <img src="salsa.png" class="layer salsa">
+        </div>
 
         <p class="descripcion">
             <strong>CHORO PORTEÑO</strong><br>
             Pan crujiente + relleno brutal + sabor que no perdona
         </p>
+
     </div>
 </div>
 
@@ -163,6 +267,36 @@ h1 {
 <a href="https://wa.me/56977122535?text=Hola%20puedo%20hacer%20un%20pedido" target="_blank" class="whatsapp-float">
     💬 Hacer pedido
 </a>
+
+<script>
+window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+
+    document.querySelector(".basepan").style.transform =
+        `translateX(-50%) translateY(${scroll * 0.03}px)`;
+
+    document.querySelector(".lechuga").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.02}px)`;
+
+    document.querySelector(".caluga").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.04}px)`;
+
+    document.querySelector(".tomate").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.06}px)`;
+
+    document.querySelector(".ajiverde").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.08}px)`;
+
+    document.querySelector(".cebollamorada").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.1}px)`;
+
+    document.querySelector(".tapa").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.12}px)`;
+
+    document.querySelector(".salsa").style.transform =
+        `translateX(-50%) translateY(${scroll * -0.09}px)`;
+});
+</script>
 
 </body>
 </html>
